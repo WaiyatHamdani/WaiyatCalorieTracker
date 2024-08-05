@@ -34,12 +34,22 @@ public class UserService {
         return users.stream().map(user -> UserMapper.mapUserDto(user)).collect(Collectors.toList());
     }
 
+    public List<UserDTO> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream().map(user -> UserMapper.mapUserDto(user)).collect(Collectors.toList());
+    }
+
     public void deleteUser(int userId) {
         userRepository.deleteById(userId);
     }
 
-    private String username;
-    private String password;
+    public UserDTO getUserByUsername(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new NullPointerException("Empty username");
+        }
+        return UserMapper.mapUserDto(user);
+    }
 
 
     public UserDTO updateUser(int userId, UserDTO userDto) {
