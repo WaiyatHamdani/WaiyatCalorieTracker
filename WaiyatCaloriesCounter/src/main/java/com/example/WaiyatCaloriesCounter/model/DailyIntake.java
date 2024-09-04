@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class DailyIntake {
     private int intakeID ;
-    private int userID;
+    private User user;
     private Date date;
     private String meal;
     private String food;
@@ -15,9 +15,9 @@ public class DailyIntake {
 
     public DailyIntake() {}
 
-    public DailyIntake(int intakeID, int userID, Date date, String meal, String food, int calories, double proteingram, double carbsgram, int servingsize) {
+    public DailyIntake(int intakeID, User user, Date date, String meal, String food, int calories, double proteingram, double carbsgram, int servingsize) {
         this.intakeID = intakeID;
-        this.userID = userID;
+        this.user = user;
         this.date = date;
         this.meal = meal;
         this.food = food;
@@ -29,8 +29,8 @@ public class DailyIntake {
 
     public int getIntakeID() {return intakeID;}
     public void setIntakeID(int intakeID) {this.intakeID = intakeID;}
-    public int getUserID() {return userID;}
-    public void setUserID(int userID) {this.userID = userID;}
+    public User getUser() {return user;}
+    public void setUser(User user) {this.user = user;}
     public Date getDate() {return date;}
     public void setDate(Date date) {this.date = date;}
     public String getMeal() {return meal;}
