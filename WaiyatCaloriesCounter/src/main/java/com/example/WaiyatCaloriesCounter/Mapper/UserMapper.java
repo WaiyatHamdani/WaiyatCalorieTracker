@@ -20,7 +20,8 @@ public class UserMapper {
                 userdto.getUsername(),
                 userdto.getPassword(),
                 userdto.getExercise(),
-                userdto.getGoal()
+                userdto.getGoal(),
+                userdto.getDailySummaries()
         );
     }
 
@@ -38,7 +39,8 @@ public class UserMapper {
                 user.getUsername(),
                 user.getPassword(),
                 user.getExercise(),
-                user.getGoal()
+                user.getGoal(),
+                user.getDailySummaries()
         );
     }
 }
