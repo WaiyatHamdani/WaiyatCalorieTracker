@@ -3,6 +3,7 @@
 - [ERD](#erd)
 - [The Website](#the-website)
 - [Properties](#properties)
+- [Run Server](#run-server)
 - [Client Setup](#client-setup)
 
 ## ERD
@@ -28,7 +29,8 @@
 - `spring.jpa.hibernate.ddl-auto=update`
 > Other modes for `ddl-auto`: `create`, `validate`, `update`, `create-drop`
 
-6. Then you can start the Java server by running `WaiyatCaloriesCounterApplication.java`.
+## Run Server
+Then you can start the Java server by running `WaiyatCaloriesCounterApplication.java`.
 
 ## Client Setup
 To start your React application in Visual Studio Code using the bash terminal:
