@@ -1,5 +1,13 @@
 package com.example.WaiyatCaloriesCounter.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="exercise")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "exerciseId")
 public class Exercise {
     private int exerciseId;
     private User user;
