@@ -1,13 +1,18 @@
-ERD
 
+## Table of Contents
+- [ERD](#erd)
+- [The Website](#the-website)
+- [Properties](#properties)
+- [Client Setup](#client-setup)
+
+## ERD
 ![erd](img/erd.jpg)
 
-The Website 
+## The Website 
 ![login](img/1.jpg)
 ![register](img/2.jpg)
 
-
-# To start by building your own application properties for PostgreSQL
+## Properties
 
 ### URL, Username, and Password
 - `spring.application.name=WaiyatCaloriesCounter`
