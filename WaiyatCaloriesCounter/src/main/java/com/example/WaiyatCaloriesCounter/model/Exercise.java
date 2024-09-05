@@ -1,16 +1,23 @@
 package com.example.WaiyatCaloriesCounter.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name ="exercise")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "exerciseId")
 public class Exercise {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int exerciseId;
+
+    @ManyToOne
+    @JoinColumn(name= "userId")
+    @JsonManagedReference
     private User user;
+
     private String exerciseType;
     private int durationMinute;
     private int caloriesBurned;

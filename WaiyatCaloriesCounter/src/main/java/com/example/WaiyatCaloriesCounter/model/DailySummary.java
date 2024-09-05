@@ -1,9 +1,31 @@
 package com.example.WaiyatCaloriesCounter.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "dailysummary")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "summaryId")
 public class DailySummary {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int summaryId;
+
+    @ManyToOne
+    @JoinColumn(name ="userId")
+    @JsonManagedReference
     private User user;
+
     private String date;
+
+    @OneToMany(mappedBy = "dailySummary")
+    @JsonBackReference
+    private List<Intake> intakes ;
     private int totalCaloriesConsumed;
     private int totalCaloriesBurned;
     private int dailyCalorieGoal;

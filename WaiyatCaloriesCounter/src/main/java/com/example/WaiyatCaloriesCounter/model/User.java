@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name ="users")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userId")
 public class User {
     @Id
@@ -31,6 +32,7 @@ public class User {
     private CalorieGoal goal;
 
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private List<DailySummary> dailySummaries;
 
     public User() {}

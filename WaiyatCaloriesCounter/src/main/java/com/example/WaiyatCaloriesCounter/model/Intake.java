@@ -1,11 +1,23 @@
 package com.example.WaiyatCaloriesCounter.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
-public class DailyIntake {
+@Entity
+@Table(name = "intake")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "intakeID")
+public class Intake {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int intakeID ;
-    private User user;
-    private Date date;
+    @ManyToOne
+    @JoinColumn(name = "summaryId")
+    @JsonManagedReference
+    private DailySummary dailySummary;
     private String meal;
     private String food;
     private int calories;
@@ -13,12 +25,11 @@ public class DailyIntake {
     private double carbsgram;
     private int servingsize;
 
-    public DailyIntake() {}
+    public Intake() {}
 
-    public DailyIntake(int intakeID, User user, Date date, String meal, String food, int calories, double proteingram, double carbsgram, int servingsize) {
+    public Intake(int intakeID, DailySummary dailySummary, String meal, String food, int calories, double proteingram, double carbsgram, int servingsize) {
         this.intakeID = intakeID;
-        this.user = user;
-        this.date = date;
+        this.dailySummary = dailySummary;
         this.meal = meal;
         this.food = food;
         this.calories = calories;
@@ -29,10 +40,8 @@ public class DailyIntake {
 
     public int getIntakeID() {return intakeID;}
     public void setIntakeID(int intakeID) {this.intakeID = intakeID;}
-    public User getUser() {return user;}
-    public void setUser(User user) {this.user = user;}
-    public Date getDate() {return date;}
-    public void setDate(Date date) {this.date = date;}
+    public DailySummary getDailySummary() {return dailySummary;}
+    public void setDailySummary(DailySummary dailySummary) {this.dailySummary = dailySummary;}
     public String getMeal() {return meal;}
     public void setMeal(String meal) {this.meal = meal;}
     public String getFood() {return food;}
