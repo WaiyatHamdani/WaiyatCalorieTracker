@@ -7,25 +7,27 @@ The Website
 ![register](img/2.jpg)
 
 
-#To start by build your own applciation properties for postgress
-#url ,username , password
-0)spring.application.name=WaiyatCaloriesCounter
-1)spring.datasource.url=jdbc:postgresql://localhost:####/your_db_name
-2)spring.datasource.username=pyour_username
-3)spring.datasource.password=your_password
+# To start by building your own application properties for PostgreSQL
 
-# Spring database stuff
-4)spring.jpa.show-sql=true
-5)spring.jpa.properties.hibernate.format_sql=true
-6)spring.datasource.driverClassName=org.postgresql.Driver
-7)spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
-8)spring.jpa.hibernate.ddl-auto=update
-# other modes for ddl: create, validate, update, create-drop
-9)Then you can start java server by running WaiyatCaloriesCounterApplication.java
+### URL, Username, and Password
+- `spring.application.name=WaiyatCaloriesCounter`
+- `spring.datasource.url=jdbc:postgresql://localhost:####/your_db_name`
+- `spring.datasource.username=your_username`
+- `spring.datasource.password=your_password`
 
+## Spring Database Configuration
+- `spring.jpa.show-sql=true`
+- `spring.jpa.properties.hibernate.format_sql=true`
+- `spring.datasource.driverClassName=org.postgresql.Driver`
+- `spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect`
+- `spring.jpa.hibernate.ddl-auto=update`
+> Other modes for `ddl-auto`: `create`, `validate`, `update`, `create-drop`
 
-for the Client : start your react application in visual studio code using bash terminal
-1) first npm install after pulling
-2) npm install react-router-dom
-3) npm install axios
-4) 
+6. Then you can start the Java server by running `WaiyatCaloriesCounterApplication.java`.
+
+## Client Setup
+To start your React application in Visual Studio Code using the bash terminal:
+
+1. First, run `npm install` after pulling the project.
+2. Install React Router DOM: `npm install react-router-dom`
+3. Install Axios: `npm install axios`
