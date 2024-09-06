@@ -6,6 +6,7 @@ import Registering from './components/Registering';
 import './css/waiyat.css';
 import WaiyatNavbar from './components/waiyatNavbar';
 import Logins from './components/Logins';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <WaiyatNavbar/>
       <h1>Waiyat Calories Counter</h1>
         <Routes>
-        <Route path="/" element={<Logins />} />
+          <Route path="/" element={<Logins />} />
           <Route path="/register" element={<Registering />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Router>
     </div>

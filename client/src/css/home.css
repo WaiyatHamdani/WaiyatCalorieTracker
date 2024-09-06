@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between; /* Align boxes to the far left and right */
+    width: 80%; /* Adjust width to create more space between the boxes */
+}
+
+.user-info {
+    flex: 1;
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px; /* Add space between the user-info and summary-info */
+    max-width: 40%; /* Set max width to limit the width */
+}
+
+.summary-info {
+    flex: 1;
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 20px; /* Add space between the summary-info and user-info */
+    max-width: 40%; /* Set max width to limit the width */
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.activity-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .activity-box {
+    background-color: white;
+    opacity: 0.9;
+    padding: 8px 70px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sedentary {
+    background-color: lightgrey;
+  }
+  
+  .lightly-active {
+    background-color: lightcoral;
+  }
+  
+  .moderately-active {
+    background-color: lightblue;
+  }
+  .Very-active{
+    background-color: rgb(63, 63, 224);
+  }
+  .Extra-active{
+    background-color: rgb(60, 201, 154);
+  }
+  
+  .activity-box h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .activity-box p {
+    font-size: 24px;
+    margin: 5px 0 0;
+  }
+
+  .speedometer {
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+  }
+  
+  .arc {
+    transform: translateY(-1px);
+    
+  }

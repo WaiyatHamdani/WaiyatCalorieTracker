@@ -5,9 +5,18 @@ import { request } from 'http';
 import base from '../base';
 import axios from 'axios';
 
+interface users{
+    firstname : String,
+    lastname : String,
+    username :String,
+    password : String,
+    age : number,
+    gender : string
+}
+
 function Registering() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLastName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [age, setAge] = useState('');
@@ -15,24 +24,31 @@ function Registering() {
 
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault(); // Prevent the default form submission behavior
         try{
                 const requestBody = {
-                    firstName,
-                    lastName,
+                    firstname,
+                    lastname,
                     username,
                     password,
-                    age,
+                    age: parseInt(age),
                     gender
                 };
 
                 const response = await axios.post(`${base.BASE_URL}/users`,requestBody,{
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
                 });
 
-                if (response.status !== 200) {
-                throw new Error('Registration failed');
+                console.log(`${base.BASE_URL}/users`);
+                console.log(response.data);
+
+                if (response.status !== 200 && response.status !== 201) {
+                    throw new Error('Registration failed');
+                } else {
+                    console.log("Registration successful");
                 }
 
         }catch(error){
@@ -52,7 +68,7 @@ function Registering() {
 
             <label>First Name:</label>
             <input type="text" className="firstname"
-                value={firstName} 
+                value={firstname} 
                 onChange={(e) => setFirstName(e.target.value)} 
                 placeholder="Enter your first name" required />
 
@@ -61,7 +77,7 @@ function Registering() {
             <label htmlFor="lastname">Last Name:</label>
             <input type="text" 
                 className="lastname" 
-                value={lastName}
+                value={lastname}
                 onChange={(e) => setLastName(e.target.value)} 
                 placeholder="Enter your last name" required />
 

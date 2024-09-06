@@ -12,6 +12,7 @@
 ## The Website 
 ![login](img/1.jpg)
 ![register](img/2.jpg)
+![home](img/3.jpg)
 
 ## Properties
 
