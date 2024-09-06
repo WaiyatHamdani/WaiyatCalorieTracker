@@ -2,12 +2,12 @@ import axios from 'axios';
 import React, { FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import base from '../base';
+import User from '../Auth/User';
 
 function Logins() {
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
     const navigate = useNavigate();
-
     async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
         event.preventDefault();
         const requestbody ={
@@ -25,11 +25,16 @@ function Logins() {
                     throw new Error('login failed');
                 } else {
                     console.log("login successful");
+                    const userUrl = `http://localhost:8080/users/${username}`;
+                    const user = new User(userUrl);
+                    user.saveLocal();
                     navigate('/home');
                 }
         }catch(error){
             console.error('Login failed. Please try again.');
         }
+
+        
     }
 
   return (
@@ -57,3 +62,7 @@ function Logins() {
 }
 
 export default Logins
+function useAuth(): { login: any; } {
+    throw new Error('Function not implemented.');
+}
+

@@ -1,12 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../css/home.css';
+import axios from 'axios';
+import User from '../Auth/User';
+
+interface users{
+    firstname : String,
+    lastname : String,
+    username :String,
+    password : String,
+    age : number,
+    gender : string
+}
+
 function Home() {
+    const [userData, setUserData] = useState<users |null >(null);
+    
+    useEffect(() => {
+        const userUrl = User.loadLocal();
+
+                if (userUrl) {
+                    axios.get(userUrl).then((response) => {
+                            setUserData(response.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching user data:', error);
+                });
+                }else{
+                    console.log('bad url');
+                }
+
+
+    }, []);
+
   return (
     <div className="content">
             <div className="user-info box">
-                <h2>Welcome User</h2>
-                <p>Age: 25</p>
-                <p>Gender: Male</p>
+                <h2>Welcome {userData?.firstname}</h2>
+                <p>Age: {userData?.age}</p>
+                <p>Gender: {userData?.gender}</p>
             </div>
             <div className="activity-levels">
                 <div className="activity-box sedentary">
