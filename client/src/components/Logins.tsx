@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Logins() {
+    const[username, setUsername] = useState('');
+    const[password, setPassword] = useState('');
+    
+
   return (
     <div className="container">
     <label htmlFor="username">Username:</label>

@@ -1,5 +1,6 @@
 package com.example.WaiyatCaloriesCounter.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -13,10 +14,6 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int exerciseId;
 
-    @ManyToOne
-    @JoinColumn(name= "userId")
-    @JsonManagedReference
-    private User user;
 
     private String exerciseType;
     private int durationMinute;
@@ -25,22 +22,20 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(int exerciseId, User user, String exerciseType, int durationMinute, int caloriesBurned) {
-        this.exerciseId = exerciseId;
-        this.user = user;
-        this.exerciseType = exerciseType;
-        this.durationMinute = durationMinute;
+    public Exercise(int caloriesBurned, int durationMinute, String exerciseType, int exerciseId) {
         this.caloriesBurned = caloriesBurned;
+        this.durationMinute = durationMinute;
+        this.exerciseType = exerciseType;
+        this.exerciseId = exerciseId;
     }
 
     public int getExerciseId() {return exerciseId;}
     public void setExerciseId(int exerciseId) {this.exerciseId = exerciseId;}
-    public User getUser() {return user;}
-    public void setUser(User user) {this.user = user;}
     public String getExerciseType() {return exerciseType;}
     public void setExerciseType(String exerciseType) {this.exerciseType = exerciseType;}
     public int getDurationMinute() {return durationMinute;}
     public void setDurationMinute(int durationMinute) {this.durationMinute = durationMinute;}
     public int getCaloriesBurned() {return caloriesBurned;}
     public void setCaloriesBurned(int caloriesBurned) {this.caloriesBurned = caloriesBurned;}
+
 }

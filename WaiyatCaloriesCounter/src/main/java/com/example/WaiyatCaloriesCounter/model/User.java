@@ -2,6 +2,7 @@ package com.example.WaiyatCaloriesCounter.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
@@ -25,19 +26,12 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonBackReference
-    private List<Exercise> exercise;
-
-    @OneToOne
-    private CalorieGoal goal;
-
-    @OneToMany(mappedBy = "user")
-    @JsonBackReference
+    @JsonManagedReference // Use ManagedReference here since User owns the relationship
     private List<DailySummary> dailySummaries;
 
     public User() {}
 
-    public User(int userId, String firstname, String lastname, double weight, String gender, int age, String username, String password, List<Exercise> exercise, CalorieGoal goal, List<DailySummary> dailySummaries) {
+    public User(int userId, String firstname, String lastname, double weight, String gender, int age, String username, String password, List<DailySummary> dailySummaries) {
         this.userId = userId;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -46,8 +40,6 @@ public class User {
         this.age = age;
         this.username = username;
         this.password = password;
-        this.exercise = exercise;
-        this.goal = goal;
         this.dailySummaries = dailySummaries;
     }
 
@@ -67,10 +59,6 @@ public class User {
     public void setPassword(String password) { this.password = password; }
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
-    public List<Exercise> getExercise() { return exercise; }
-    public void setExercise(List<Exercise> exercise) { this.exercise = exercise; }
-    public CalorieGoal getGoal() { return goal; }
-    public void setGoal(CalorieGoal goal) { this.goal = goal; }
     public List<DailySummary> getDailySummaries() { return dailySummaries; }
     public void setDailySummaries(List<DailySummary> dailySummaries) { this.dailySummaries = dailySummaries; }
 }

@@ -18,14 +18,10 @@ public class DailySummary {
 
     @ManyToOne
     @JoinColumn(name ="userId")
-    @JsonManagedReference
+    @JsonBackReference // Use BackReference here as this is the inverse of the relationship
     private User user;
 
     private String date;
-
-    @OneToMany(mappedBy = "dailySummary")
-    @JsonBackReference
-    private List<Intake> intakes ;
     private int totalCaloriesConsumed;
     private int totalCaloriesBurned;
     private int dailyCalorieGoal;
@@ -41,6 +37,7 @@ public class DailySummary {
         this.totalCaloriesBurned = totalCaloriesBurned;
         this.dailyCalorieGoal = dailyCalorieGoal;
     }
+
     public int getSummaryId() {return summaryId;}
     public void setSummaryId(int summaryId) {this.summaryId = summaryId;}
     public User getUser() {return user;}

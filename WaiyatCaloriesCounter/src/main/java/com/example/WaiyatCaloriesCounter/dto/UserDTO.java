@@ -1,8 +1,6 @@
 package com.example.WaiyatCaloriesCounter.dto;
 
-import com.example.WaiyatCaloriesCounter.model.CalorieGoal;
 import com.example.WaiyatCaloriesCounter.model.DailySummary;
-import com.example.WaiyatCaloriesCounter.model.Exercise;
 
 import java.util.List;
 
@@ -15,13 +13,10 @@ public class UserDTO {
     private int age;
     private String username;
     private String password;
-    private List<Exercise> exercise;
-    private CalorieGoal goal;
     private List<DailySummary> dailySummaries;
-
     public UserDTO() {}
 
-    public UserDTO(int userId, String firstname, String lastname, double weight, String gender, int age, String username, String password, List<Exercise> exercise, CalorieGoal goal, List<DailySummary> dailySummaries) {
+    public UserDTO(int userId, String firstname, String lastname, double weight, String gender, int age, String username, String password, List<DailySummary> dailySummaries) {
         this.userId = userId;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -30,8 +25,6 @@ public class UserDTO {
         this.age = age;
         this.username = username;
         this.password = password;
-        this.exercise = exercise;
-        this.goal = goal;
         this.dailySummaries = dailySummaries;
     }
 
@@ -51,22 +44,6 @@ public class UserDTO {
     public void setPassword(String password) { this.password = password; }
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
-
-    public List<Exercise> getExercise() {
-        return exercise;
-    }
-
-    public void setExercise(List<Exercise> exercise) {
-        this.exercise = exercise;
-    }
-
-    public CalorieGoal getGoal() {
-        return goal;
-    }
-
-    public void setGoal(CalorieGoal goal) {
-        this.goal = goal;
-    }
 
     public List<DailySummary> getDailySummaries() {
         return dailySummaries;

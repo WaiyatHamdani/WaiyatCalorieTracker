@@ -19,8 +19,6 @@ public class UserMapper {
                 userdto.getAge(),
                 userdto.getUsername(),
                 userdto.getPassword(),
-                userdto.getExercise(),
-                userdto.getGoal(),
                 userdto.getDailySummaries()
         );
     }
@@ -38,8 +36,6 @@ public class UserMapper {
                 user.getAge(),
                 user.getUsername(),
                 user.getPassword(),
-                user.getExercise(),
-                user.getGoal(),
                 user.getDailySummaries()
         );
     }
