@@ -105,3 +105,20 @@ p {
     transform: translateY(-1px);
     
   }
+
+.bmr-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.bmr-value {
+    font-size: 32px;
+    color: #ff6347;
+}

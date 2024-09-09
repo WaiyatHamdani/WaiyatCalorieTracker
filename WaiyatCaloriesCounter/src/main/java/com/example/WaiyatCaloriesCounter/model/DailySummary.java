@@ -16,7 +16,8 @@ public class DailySummary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int summaryId;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="userId")
     @JsonBackReference // Use BackReference here as this is the inverse of the relationship
     private User user;

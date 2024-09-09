@@ -11,7 +11,9 @@ interface users{
     username :String,
     password : String,
     age : number,
-    gender : string
+    gender : string,
+    weight :number,
+    height : number
 }
 
 function Registering() {
@@ -21,6 +23,8 @@ function Registering() {
     const [password, setPassword] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
+    const [weight ,setWeight] = useState('');
+    const [height ,setHeight] = useState('');
 
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -32,7 +36,9 @@ function Registering() {
                     username,
                     password,
                     age: parseInt(age),
-                    gender
+                    gender,
+                    weight,
+                    height
                 };
 
                 const response = await axios.post(`${base.BASE_URL}/users`,requestBody,{
@@ -63,7 +69,7 @@ function Registering() {
     
     <div className="container">
     <h2>Create an Account</h2>
-
+    <h3>fill accurately as much as posible</h3>
     <form onSubmit={handleSubmit}>
 
             <label>First Name:</label>
@@ -109,6 +115,18 @@ function Registering() {
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
                 placeholder="Enter your gender" required />
+
+            <label htmlFor="weight">Weight:</label>
+            <input type="text" className="weight"
+                value ={weight}
+                onChange={(e) => setWeight(e.target.value)}
+                placeholder="Weight in pounds" required />
+
+            <label htmlFor="height">Height:</label>
+            <input type="text" className="height"
+                value ={height}
+                onChange={(e) => setHeight(e.target.value)}
+                placeholder="Height in inches" required />
 
             <button type="submit">Submit</button>
    

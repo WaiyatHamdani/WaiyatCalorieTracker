@@ -11,18 +11,20 @@ public class UserDTO {
     private double weight;
     private String gender;
     private int age;
+    private double height;
     private String username;
     private String password;
     private List<DailySummary> dailySummaries;
     public UserDTO() {}
 
-    public UserDTO(int userId, String firstname, String lastname, double weight, String gender, int age, String username, String password, List<DailySummary> dailySummaries) {
+    public UserDTO(int userId, String firstname, String lastname, double weight, String gender, int age, double height, String username, String password, List<DailySummary> dailySummaries) {
         this.userId = userId;
         this.firstname = firstname;
         this.lastname = lastname;
         this.weight = weight;
         this.gender = gender;
         this.age = age;
+        this.height = height;
         this.username = username;
         this.password = password;
         this.dailySummaries = dailySummaries;
@@ -51,5 +53,13 @@ public class UserDTO {
 
     public void setDailySummaries(List<DailySummary> dailySummaries) {
         this.dailySummaries = dailySummaries;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
     }
 }

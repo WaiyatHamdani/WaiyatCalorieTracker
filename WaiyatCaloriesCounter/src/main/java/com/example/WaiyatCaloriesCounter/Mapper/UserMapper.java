@@ -17,6 +17,7 @@ public class UserMapper {
                 userdto.getWeight(),
                 userdto.getGender(),
                 userdto.getAge(),
+                userdto.getHeight(),
                 userdto.getUsername(),
                 userdto.getPassword(),
                 userdto.getDailySummaries()
@@ -34,6 +35,7 @@ public class UserMapper {
                 user.getWeight(),
                 user.getGender(),
                 user.getAge(),
+                user.getHeight(),
                 user.getUsername(),
                 user.getPassword(),
                 user.getDailySummaries()
