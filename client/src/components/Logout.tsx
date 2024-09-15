@@ -5,8 +5,6 @@ import { Base_url } from '../Auth/base';
 function Logout() {
     useEffect(()=>{
         User.clearLocal();
-
-        //Redirect to login page
         window.location.href = Base_url;
     });
   return (

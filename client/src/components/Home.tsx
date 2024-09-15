@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import '../css/home.css'; // Ensure you have proper CSS for layout
+import '../css/home.css'; 
 import axios from 'axios';
 import User from '../Auth/User';
 import { Base_calories_url } from '../Auth/base';
 
-// User interface definition
+
 interface users {
     firstname: string,
     lastname: string,
@@ -42,14 +42,14 @@ function Home() {
             }
         }
     
-        if (!userData) { // Fetch user data only if it is not already set
+        if (!userData) { 
             fetchCurrentUser();
         }
-    }, [userData]); // Only runs when userData changes or is initially null
+    }, [userData]); 
     
     useEffect(() => {
         async function fetchCaloriestype() {
-            // Ensure saveweight, saveage, saveheight, and savegender are set
+          
             if (saveweight !== null && saveage !== null && saveheight !== null && savegender) {
                 try {
                     const requestBody = {
@@ -66,8 +66,7 @@ function Home() {
             }
         }
 
-        fetchCaloriestype(); // Trigger the function when necessary states are set
-        
+        fetchCaloriestype(); 
     }, [saveweight, saveage, saveheight, savegender]); 
 
     return (

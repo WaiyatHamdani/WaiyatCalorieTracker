@@ -4,13 +4,8 @@ import { Base_activity_minute } from '../Auth/base';
 import '../css/activity.css';
 
 function UActivity() {
-    // Store activity calories data
     const [activitycalories, setActivitycalories] = useState<Record<string, number>>({}); 
-
-    // Store minutes for each activity row
     const [minutes, setMinutes] = useState<{ [key: string]: number | null }>({});
-    
-    // Store total calories for each activity row
     const [totalCalories, setTotalCalories] = useState<{ [key: string]: number }>({});
 
     useEffect(() => {

@@ -26,17 +26,17 @@ function Registering() {
     const [height, setHeight] = useState('');
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault(); // Prevent the default form submission behavior
+        event.preventDefault(); 
         try {
             const requestBody = {
                 firstname,
                 lastname,
                 username,
                 password,
-                age: parseInt(age), // Convert age to number
+                age: parseInt(age), 
                 gender,
-                weight: parseFloat(weight), // Convert weight to number
-                height: parseFloat(height) // Convert height to number
+                weight: parseFloat(weight), 
+                height: parseFloat(height) 
             };
 
             const response = await axios.post(`${base.BASE_URL}/users`, requestBody, {
