@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import base from '../base';
 import User from '../Auth/User';
+import { Base_user_url } from '../Auth/base';
 
 function Logins() {
     const[username, setUsername] = useState('');
@@ -25,7 +26,7 @@ function Logins() {
                     throw new Error('login failed');
                 } else {
                     console.log("login successful");
-                    const userUrl = `http://localhost:8080/users/${username}`;
+                    const userUrl = `${Base_user_url}${username}`;
                     const user = new User(userUrl);
                     user.saveLocal();
                     navigate('/home');

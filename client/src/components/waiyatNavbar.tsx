@@ -9,13 +9,18 @@ function waiyatNavbar() {
                 <span className="icon">🏠</span>
                 <span className="text">Home</span>
             </Link>
-            <Link to="/exercise" className="link">
+            <Link to="/activity" className="link">
                 <span className="icon">🏋️‍♂️</span>
                 <span className="text">sport</span>
             </Link>
             <Link to="/food" className="link">
                 <span className="icon">🍕</span>
                 <span className="text">food</span>
+            </Link>
+
+            <Link to="/logout" className="link">
+                <span className="Icon">🚪</span>
+                <span className="text">logout</span>
             </Link>
         </nav>
     </div>

@@ -1,6 +1,5 @@
 package com.example.WaiyatCaloriesCounter.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -27,11 +26,15 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     @JsonManagedReference // Use ManagedReference here since User owns the relationship
-    private List<DailySummary> dailySummaries;
+    private List<Activity> activities;
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    private  List<FoodCal> foodCals;
 
     public User() {}
 
-    public User(int userId, String firstname, String lastname, double weight, String gender, int age, double height, String username, String password, List<DailySummary> dailySummaries) {
+    public User(int userId, String firstname, String lastname, double weight, String gender, int age, double height, String username, String password, List<Activity> activities, List<FoodCal> foodCals) {
         this.userId = userId;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -41,33 +44,30 @@ public class User {
         this.height = height;
         this.username = username;
         this.password = password;
-        this.dailySummaries = dailySummaries;
+        this.activities = activities;
+        this.foodCals = foodCals;
     }
 
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
-    public String getFirstname() { return firstname; }
-    public void setFirstname(String firstname) { this.firstname = firstname; }
-    public String getLastname() { return lastname; }
-    public void setLastname(String lastname) { this.lastname = lastname; }
-    public double getWeight() { return weight; }
-    public void setWeight(double weight) { this.weight = weight; }
-    public String getGender() { return gender; }
-    public void setGender(String gender) { this.gender = gender; }
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
-    public List<DailySummary> getDailySummaries() { return dailySummaries; }
-    public void setDailySummaries(List<DailySummary> dailySummaries) { this.dailySummaries = dailySummaries; }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
+    public int getUserId() {return userId;}
+    public void setUserId(int userId) {this.userId = userId;}
+    public String getFirstname() {return firstname;}
+    public void setFirstname(String firstname) {this.firstname = firstname;}
+    public String getLastname() {return lastname;}
+    public void setLastname(String lastname) {this.lastname = lastname;}
+    public double getWeight() {return weight;}
+    public void setWeight(double weight) {this.weight = weight;}
+    public String getGender() {return gender;}
+    public void setGender(String gender) {this.gender = gender;}
+    public int getAge() {return age;}
+    public void setAge(int age) {this.age = age;}
+    public double getHeight() {return height;}
+    public void setHeight(double height) {this.height = height;}
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
+    public String getPassword() {return password;}
+    public void setPassword(String password) {this.password = password;}
+    public List<Activity> getActivities() {return activities;}
+    public void setActivities(List<Activity> activities) {this.activities = activities;}
+    public List<FoodCal> getFoodCals() {return foodCals;}
+    public void setFoodCals(List<FoodCal> foodCals) {this.foodCals = foodCals;}
 }

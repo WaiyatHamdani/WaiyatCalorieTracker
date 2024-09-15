@@ -2,7 +2,6 @@ package com.example.WaiyatCaloriesCounter.Mapper;
 
 import com.example.WaiyatCaloriesCounter.dto.UserDTO;
 import com.example.WaiyatCaloriesCounter.model.User;
-import jakarta.persistence.Column;
 
 public class UserMapper {
 
@@ -20,7 +19,8 @@ public class UserMapper {
                 userdto.getHeight(),
                 userdto.getUsername(),
                 userdto.getPassword(),
-                userdto.getDailySummaries()
+                userdto.getActivities(),
+                userdto.getFoodCals()
         );
     }
 
@@ -38,7 +38,8 @@ public class UserMapper {
                 user.getHeight(),
                 user.getUsername(),
                 user.getPassword(),
-                user.getDailySummaries()
+                user.getActivities(),
+                user.getFoodCals()
         );
     }
 }

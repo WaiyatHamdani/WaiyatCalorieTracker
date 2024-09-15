@@ -1,6 +1,7 @@
 package com.example.WaiyatCaloriesCounter.dto;
 
-import com.example.WaiyatCaloriesCounter.model.DailySummary;
+import com.example.WaiyatCaloriesCounter.model.Activity;
+import com.example.WaiyatCaloriesCounter.model.FoodCal;
 
 import java.util.List;
 
@@ -14,10 +15,11 @@ public class UserDTO {
     private double height;
     private String username;
     private String password;
-    private List<DailySummary> dailySummaries;
+    private List<Activity> activities;
+    private  List<FoodCal> foodCals;
     public UserDTO() {}
 
-    public UserDTO(int userId, String firstname, String lastname, double weight, String gender, int age, double height, String username, String password, List<DailySummary> dailySummaries) {
+    public UserDTO(int userId, String firstname, String lastname, double weight, String gender, int age, double height, String username, String password, List<Activity> activities, List<FoodCal> foodCals) {
         this.userId = userId;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -27,7 +29,8 @@ public class UserDTO {
         this.height = height;
         this.username = username;
         this.password = password;
-        this.dailySummaries = dailySummaries;
+        this.activities = activities;
+        this.foodCals = foodCals;
     }
 
     public int getUserId() { return userId; }
@@ -46,20 +49,16 @@ public class UserDTO {
     public void setPassword(String password) { this.password = password; }
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
-
-    public List<DailySummary> getDailySummaries() {
-        return dailySummaries;
+    public List<Activity> getActivities() {
+        return activities;
     }
-
-    public void setDailySummaries(List<DailySummary> dailySummaries) {
-        this.dailySummaries = dailySummaries;
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
-
-    public double getHeight() {
-        return height;
-    }
-
+    public double getHeight() {return height;}
     public void setHeight(double height) {
         this.height = height;
     }
+    public List<FoodCal> getFoodCals() {return foodCals;}
+    public void setFoodCals(List<FoodCal> foodCals) {this.foodCals = foodCals;}
 }

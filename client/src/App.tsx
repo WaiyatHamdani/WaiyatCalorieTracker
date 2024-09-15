@@ -7,6 +7,8 @@ import './css/waiyat.css';
 import WaiyatNavbar from './components/waiyatNavbar';
 import Logins from './components/Logins';
 import Home from './components/Home';
+import Logout from './components/Logout';
+import UActivity from './components/UActivity';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/" element={<Logins />} />
           <Route path="/register" element={<Registering />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/activity" element={<UActivity/>}/>
         </Routes>
       </Router>
     </div>

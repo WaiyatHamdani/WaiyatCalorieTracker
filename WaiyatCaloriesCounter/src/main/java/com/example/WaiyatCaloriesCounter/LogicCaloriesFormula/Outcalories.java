@@ -38,6 +38,22 @@ public class Outcalories {
 
     public double femaleactivity(double bmr, String afactor){
         result = 1381.44*activityfactor.get(afactor);
+        return result ;
+    }
+
+    public HashMap<String, Double> getActivityfactor() {
+        return activityfactor;
+    }
+
+    public void setActivityfactor(HashMap<String, Double> activityfactor) {
+        this.activityfactor = activityfactor;
+    }
+
+    public double getResult() {
         return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
     }
 }

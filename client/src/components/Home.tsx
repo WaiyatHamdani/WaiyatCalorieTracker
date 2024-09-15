@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../css/home.css'; // Ensure you have proper CSS for layout
 import axios from 'axios';
 import User from '../Auth/User';
+import { Base_calories_url } from '../Auth/base';
 
 // User interface definition
 interface users {
@@ -18,6 +19,10 @@ interface users {
 function Home() {
     const [userData, setUserData] = useState<users | null>(null);
     const [incalories, setInCalories] = useState<number | null>(null);
+    const [saveweight, setsaveWeight] = useState<number |null> (null);
+    const [saveheight, setsaveHeight] = useState<number |null>(null);
+    const [saveage, setsaveAge] = useState<number | null>(null);
+    const[savegender ,setsaveGender] = useState<string |null>(null);
 
     useEffect(() => {
         async function fetchCurrentUser() {
@@ -27,6 +32,10 @@ function Home() {
                     const response = await axios.get(userUrl);
                     console.log(response.data);
                     setUserData(response.data);
+                    setsaveWeight(response.data.weight);
+                    setsaveHeight(response.data.height);
+                    setsaveAge(response.data.age);
+                    setsaveGender(response.data.gender);
                 }
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -40,14 +49,15 @@ function Home() {
     
     useEffect(() => {
         async function fetchCaloriestype() {
-            if (userData && !incalories) {
+            // Ensure saveweight, saveage, saveheight, and savegender are set
+            if (saveweight !== null && saveage !== null && saveheight !== null && savegender) {
                 try {
                     const requestBody = {
-                        weight: userData.weight,
-                        age: userData.age,
-                        height: userData.height,
+                        weight: saveweight,
+                        age: saveage,
+                        height: saveheight,
                     };
-                    const response = await axios.post(`http://localhost:8080/calories/${userData.gender}`, requestBody);
+                    const response = await axios.post(`${Base_calories_url}${savegender}`, requestBody);
                     setInCalories(response.data);
                     console.log('Calories type data:', response.data);
                 } catch (error) {
@@ -55,11 +65,10 @@ function Home() {
                 }
             }
         }
-    
-        if (userData && !incalories) { // Only fetch calorie data if userData exists and incalories is not set
-            fetchCaloriestype();
-        }
-    }, [userData, incalories]); // Only runs when userData or incalories changes
+
+        fetchCaloriestype(); // Trigger the function when necessary states are set
+        
+    }, [saveweight, saveage, saveheight, savegender]); 
 
     return (
         <div className="content">
@@ -75,7 +84,7 @@ function Home() {
             <div className="bmr-section">
                 <h3>BMR</h3>
                 <div className="bmr-value">
-                {incalories ? `${incalories} kcal/day` : 'Calculating...'}
+                {incalories ? `${incalories} cal/day` : 'Calculating...'}
                 </div>
             </div>
 
@@ -87,7 +96,7 @@ function Home() {
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ddd" strokeWidth="15" />
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ff6347" strokeWidth="15" strokeDasharray="60 360" />
                     </svg>
-                    <p>{incalories ? `${(incalories * 1.2).toFixed(0)} kcal` : 'Calculating...'}</p>
+                    <p>{incalories ? `${(incalories * 1.2).toFixed(0)} cal` : 'Calculating...'}</p>
                 </div>
                 <div className="activity-box lightly-active">
                     <h3>Lightly Active</h3>
@@ -96,7 +105,7 @@ function Home() {
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ddd" strokeWidth="15" />
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ff6347" strokeWidth="15" strokeDasharray="90 360" />
                     </svg>
-                    <p>{incalories ? `${(incalories * 1.375).toFixed(0)} kcal` : 'Calculating...'}</p>
+                    <p>{incalories ? `${(incalories * 1.375).toFixed(0)} cal` : 'Calculating...'}</p>
                 </div>
                 <div className="activity-box moderately-active">
                     <h3>Moderately Active</h3>
@@ -105,7 +114,7 @@ function Home() {
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ddd" strokeWidth="15" />
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ff6347" strokeWidth="15" strokeDasharray="120 360" />
                     </svg>
-                    <p>{incalories ? `${(incalories * 1.55).toFixed(0)} kcal` : 'Calculating...'}</p>
+                    <p>{incalories ? `${(incalories * 1.55).toFixed(0)} cal` : 'Calculating...'}</p>
                 </div>
                 <div className="activity-box Very-active">
                     <h3>Very active</h3>
@@ -115,7 +124,7 @@ function Home() {
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ddd" strokeWidth="15" />
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ff6347" strokeWidth="15" strokeDasharray="160 360" />
                     </svg>
-                    <p>{incalories ? `${(incalories * 1.725).toFixed(0)} kcal` : 'Calculating...'}</p>
+                    <p>{incalories ? `${(incalories * 1.725).toFixed(0)} cal` : 'Calculating...'}</p>
                 </div>
                 <div className="activity-box Extra-active">
                     <h3>Extra active</h3>
@@ -125,7 +134,7 @@ function Home() {
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ddd" strokeWidth="15" />
                         <path className="arc" d="M 10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#ff6347" strokeWidth="15" strokeDasharray="180 180" />
                     </svg>
-                    <p>{incalories ? `${(incalories * 1.9).toFixed(0)} kcal` : 'Calculating...'}</p>
+                    <p>{incalories ? `${(incalories * 1.9).toFixed(0)} cal` : 'Calculating...'}</p>
                 </div>
             </div>
         </div>
