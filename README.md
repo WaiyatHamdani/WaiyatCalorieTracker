@@ -10,8 +10,8 @@
 ![erd](img/erd.jpg)
 
 ## The Website 
-[registerlogin](img/1.gif)
-[activity](img/2.gif)
+![registerlogin](img/1.gif)
+![activity](img/2.gif)
 
 ## Properties
 
