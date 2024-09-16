@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function UFood() {
     const [foodcalories, setFoodCalories] = useState<Record<string, number>>({}); //this one store hashmap from java json string and number 
 
+    useEffect(() => {
+
+
+    }, []);
+    
   return (
     <div>
       
