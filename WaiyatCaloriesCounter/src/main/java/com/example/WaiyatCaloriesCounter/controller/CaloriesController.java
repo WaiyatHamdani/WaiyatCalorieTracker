@@ -1,6 +1,7 @@
 package com.example.WaiyatCaloriesCounter.controller;
 
 import com.example.WaiyatCaloriesCounter.LogicCaloriesFormula.ActivityCaloriesPerMinute;
+import com.example.WaiyatCaloriesCounter.LogicCaloriesFormula.FoodCalories;
 import com.example.WaiyatCaloriesCounter.LogicCaloriesFormula.Incalories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +32,10 @@ public class CaloriesController {
     public ResponseEntity<HashMap<String,Double>> getallactivity(){
         ActivityCaloriesPerMinute activityCaloriesPerMinute = new ActivityCaloriesPerMinute();
         return new ResponseEntity<>(activityCaloriesPerMinute.getActivityCaloriesMap(),HttpStatus.OK);
+    }
+    @GetMapping(path = "/foods")
+    public ResponseEntity<HashMap<String,Double>> getallfoods(){
+        FoodCalories foodCalories = new FoodCalories();
+        return new ResponseEntity<>(foodCalories.getTypeFood(),HttpStatus.OK);
     }
 }
