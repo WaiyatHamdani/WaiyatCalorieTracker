@@ -9,6 +9,7 @@ import Logins from './components/Logins';
 import Home from './components/Home';
 import Logout from './components/Logout';
 import UActivity from './components/UActivity';
+import UFood from './components/UFood';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/activity" element={<UActivity/>}/>
+          <Route path ="/food" element={<UFood/>}/>
         </Routes>
       </Router>
     </div>

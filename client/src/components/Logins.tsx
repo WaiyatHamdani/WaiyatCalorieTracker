@@ -24,6 +24,7 @@ function Logins() {
 
                 if (response.status !== 200 && response.status !== 201) {
                     throw new Error('login failed');
+                    alert("login failed");
                 } else {
                     console.log("login successful");
                     const userUrl = `${Base_user_url}${username}`;
@@ -33,6 +34,7 @@ function Logins() {
                 }
         }catch(error){
             console.error('Login failed. Please try again.');
+            alert("username or password is not correct");
         }
 
         
